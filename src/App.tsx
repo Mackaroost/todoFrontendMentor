@@ -18,17 +18,21 @@ function App() {
  }
  setTodos([...todos, newTodo ])
   }
+
+  const deleteTodo = (id:number): void =>{
+  setTodos(todos.filter(item=> item.id !== id))
+  }
   
   return (
     <>
-  <div className="container min-h-72 px-5  mx-auto bg-[url('/todo-app-main/images/bg-mobile-light.jpg')] bg-cover bg-center">
+  <div className=" min-h-72 px-5  bg-[url('/todo-app-main/images/bg-mobile-light.jpg')] bg-cover bg-center">
   <Header />
   <div className="pt-14">
   <Form createTodo ={createTodo}/>
   </div>
   </div>
 
-  <TodoList todos = {todos}/>
+  <TodoList todos = {todos} deleteTodo = {deleteTodo}/>
  
 
   </>
