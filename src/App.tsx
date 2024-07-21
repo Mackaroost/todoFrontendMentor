@@ -27,7 +27,7 @@ const filterFc = todos.filter((item)=>{
     return item
   }else if(filterTodo === 'active'){
     return !item.completed
-  }else{
+  }else if(filterTodo === 'completed'){
     return item.completed
   }
 })
@@ -58,7 +58,7 @@ setTodos(todos.map((item)=> item.id === id ? {...item,completed: !item.completed
   <main className="container mx-auto  bg-transparent">
   <TodoList todos = {filterFc} deleteTodo = {deleteTodo} updateTodo={updateTodo}/>
   <TodoResumen clearTodo = {clearTodo} incompleteTodo = {incompleteTodo}/>
-  <PanelFilter filterAct = {filterAct}/>
+  <PanelFilter filterAct = {filterAct} filterTodo = {filterTodo}/>
   </main>
   </>
   )
