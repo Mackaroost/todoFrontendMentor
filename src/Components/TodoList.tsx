@@ -1,9 +1,9 @@
 import DeleteTodo from "./DeleteTodo";
-import { TodosType} from "./types/todos";
+import { type TodosType } from "./types/todos";
 import CheckBtn from "./CheckBtn";
   
   interface TodoListProps {
-    todos: TodosType[],
+    todos: TodosType[]
     deleteTodo: (id:number)=> void,
     updateTodo:(id:number)=>void
   }
@@ -13,7 +13,7 @@ export const TodoList : React.FC<TodoListProps> = ({todos, deleteTodo, updateTod
   return (
     <ul className="mt-[-3rem] w-4/6  rounded-md bg-slate-50 mx-auto flex-col items-center shadow-md ">
         {
-            todos.map((item)=>{
+            todos.map((item) =>{
                 return(
                     <li key={item.id} className="p-4 flex items-center gap-x-2 w-full border-b-2 border-b-gray-300 "> 
                      <button 

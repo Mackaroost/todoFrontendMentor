@@ -4,13 +4,15 @@ import Form from "./Components/Form"
 import { useState } from "react"
 import { mockTasks } from "./Components/mocks/mockList"
 import TodoResumen from "./Components/TodoResumen"
+import PanelFilter from "./Components/PanelFilter"
 
 
 
 function App() {
 
   const[todos, setTodos]= useState(mockTasks)
-
+  const [filterTodo, setFilterTodo]= useState('all')
+  
   const createTodo = (title:string): void =>{
  const newTodo = {
   id:Date.now(),
@@ -19,6 +21,19 @@ function App() {
  }
  setTodos([...todos, newTodo ])
   }
+
+const filterFc = todos.filter((item)=>{
+  if(filterTodo === 'all'){
+    return item
+  }else if(filterTodo === 'active'){
+    return !item.completed
+  }else{
+    return item.completed
+  }
+})
+
+const filterAct = (filterTodo:string) => setFilterTodo(filterTodo)
+
 
   const deleteTodo = (id:number): void =>{
   setTodos(todos.filter(item=> item.id !== id))
@@ -36,13 +51,14 @@ setTodos(todos.map((item)=> item.id === id ? {...item,completed: !item.completed
     <>
   <div className=" min-h-72 px-5  bg-[url('/todo-app-main/images/bg-mobile-light.jpg')] bg-cover bg-center">
   <Header />
-  <div className="pt-14">
+  <div className="pt-8">
   <Form createTodo ={createTodo}/>
   </div>
   </div>
   <main className="container mx-auto  bg-transparent">
-  <TodoList todos = {todos} deleteTodo = {deleteTodo} updateTodo={updateTodo}/>
+  <TodoList todos = {filterFc} deleteTodo = {deleteTodo} updateTodo={updateTodo}/>
   <TodoResumen clearTodo = {clearTodo} incompleteTodo = {incompleteTodo}/>
+  <PanelFilter filterAct = {filterAct}/>
   </main>
   </>
   )
