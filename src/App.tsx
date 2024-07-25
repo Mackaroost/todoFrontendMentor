@@ -48,19 +48,19 @@ setTodos(todos.map((item)=> item.id === id ? {...item,completed: !item.completed
 
   const incompleteTodo = todos.filter(todo => !todo.completed).length;  
   return (
-    <>
-  <div className=" min-h-72 px-5  bg-[url('/todo-app-main/images/bg-mobile-light.jpg')] bg-cover bg-center">
+    <div className="min-h-screen dark:bg-slate-900 bg-slate-200 ">
+  <div className=" min-h-72 px-5  bg-[url('/todo-app-main/images/bg-mobile-light.jpg')] bg-cover bg-center dark:bg-[url('/todo-app-main/images/bg-mobile-dark.jpg')]">
   <Header />
   <div className="pt-8">
   <Form createTodo ={createTodo}/>
   </div>
   </div>
-  <main className="container mx-auto  bg-transparent">
+  <main className="container mx-auto ">
   <TodoList todos = {filterFc} deleteTodo = {deleteTodo} updateTodo={updateTodo}/>
   <TodoResumen clearTodo = {clearTodo} incompleteTodo = {incompleteTodo}/>
   <PanelFilter filterAct = {filterAct} filterTodo = {filterTodo}/>
   </main>
-  </>
+  </div>
   )
 }
 

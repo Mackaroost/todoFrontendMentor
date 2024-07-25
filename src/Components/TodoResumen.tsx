@@ -5,7 +5,7 @@ incompleteTodo: number
 
 const TodoResumen = ({clearTodo, incompleteTodo}:clearCompleteProps) => {
   return (
-    <div className=" w-4/6  rounded-md bg-slate-50 mx-auto  shadow-md p-4 flex justify-between items-center font-semibold text-gray-400">
+    <div className=" w-4/6  rounded-md bg-slate-50 mx-auto  shadow-md p-4 flex justify-between items-center font-semibold text-gray-600 dark:bg-slate-800 ">
     <span>{incompleteTodo} to left Todo</span>
     <button onClick={clearTodo}>
         Clear Completed

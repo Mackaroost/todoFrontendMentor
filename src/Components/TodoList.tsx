@@ -11,7 +11,7 @@ import CheckBtn from "./CheckBtn";
 export const TodoList : React.FC<TodoListProps> = ({todos, deleteTodo, updateTodo}) => {
    
   return (
-    <ul className="mt-[-3rem] w-4/6  rounded-md bg-slate-50 mx-auto flex-col items-center shadow-md ">
+    <ul className="mt-[-3rem] w-4/6 rounded-md bg-slate-50 mx-auto flex-col items-center shadow-md dark:bg-slate-800 ">
         {
             todos.map((item) =>{
                 return(
@@ -21,7 +21,7 @@ export const TodoList : React.FC<TodoListProps> = ({todos, deleteTodo, updateTod
                      className={`${item.completed ? ' flex items-center justify-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500' : 'bg-slate-100'} rounded-full border-2 inline-block w-[18px] h-[18px]`}>
                      {item.completed ? <CheckBtn /> : null}
                        </button>
-                       <p className={`font-semibold text-gray-500 ${item.completed ? 'line-through' : ''}`}>
+                       <p className={`font-semibold text-gray-600 dark:text-gray-400 ${item.completed ? 'line-through' : ''}`}>
                          {item.title}
                        </p>
                     <button className= "ml-auto text-gray-400"
