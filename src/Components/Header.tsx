@@ -2,14 +2,17 @@ import MoonIcons from "./MoonIcons"
 import { useEffect, useState } from "react"
 import SunIcons from "./SunIcons"
 
+const initialState = localStorage.getItem('theme')==='dark'
 const Header  = () => {
-  const [darkMode, setDarkMode] = useState(false)
+  const [darkMode, setDarkMode] = useState(initialState)
   
   useEffect(() => {
    if(darkMode){
     document.documentElement.classList.add("dark");
+    localStorage.setItem('theme', 'dark')
    }else{
     document.documentElement.classList.remove("dark");
+    localStorage.setItem('theme', 'light')
    }
   }, [darkMode])
 
